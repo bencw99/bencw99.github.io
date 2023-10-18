@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Ben Cohen-Wang"
+title                    : "Home"
 title_separator          : "-"
 name                     : &name "Ben Cohen-Wang"
 description              : &description "personal description"
@@ -101,7 +101,7 @@ author:
   keybase          :
   instagram        :
   impactstory      : 
-  lastfm           : 
+  lastfm           :
   linkedin         : "ben-cohen-wang-b8a81211a"
   orcid            : 
   pinterest        :
