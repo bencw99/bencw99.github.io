@@ -10,12 +10,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
-            --text-color: #000000;
-            --hover-bg: #f8f9fa;
-            --link-color: hsl(217, 78%, 32%);
-            --link-hover-color: hsl(217, 78%, 45%);
-            --header-border: rgba(0,0,0,0.1);
+            --bg-color: #f4ecd8;
+            --text-color: #5c4b37;
+            --hover-bg: #e8dcc8;
+            --link-color: #8b4513;
+            --link-hover-color: #a0522d;
+            --header-border: rgba(92,75,55,0.1);
         }
 
         [data-theme="dark"] {
@@ -25,24 +25,6 @@
             --link-color: hsl(217, 78%, 70%);
             --link-hover-color: hsl(217, 78%, 80%);
             --header-border: rgba(255,255,255,0.1);
-        }
-
-        [data-theme="sepia"] {
-            --bg-color: #f4ecd8;
-            --text-color: #5c4b37;
-            --hover-bg: #e8dcc8;
-            --link-color: #8b4513;
-            --link-hover-color: #a0522d;
-            --header-border: rgba(92,75,55,0.1);
-        }
-
-        [data-theme="purple"] {
-            --bg-color: #1a1a2e;
-            --text-color: #e6c3c3;
-            --hover-bg: #2d2d4d;
-            --link-color: #ff9494;
-            --link-hover-color: #ffb4b4;
-            --header-border: rgba(230,195,195,0.1);
         }
 
         body { 
@@ -382,17 +364,15 @@
     <script>
         // Check for saved theme preference, otherwise use system preference
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        const currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
+        const currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'sepia');
         document.documentElement.setAttribute('data-theme', currentTheme);
 
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             let newTheme;
             
-            if (currentTheme === 'light') newTheme = 'dark';
-            else if (currentTheme === 'dark') newTheme = 'sepia';
-            else if (currentTheme === 'sepia') newTheme = 'purple';
-            else newTheme = 'light';
+            if (currentTheme === 'sepia') newTheme = 'dark';
+            else newTheme = 'sepia';
             
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
