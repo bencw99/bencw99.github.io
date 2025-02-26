@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --bg-color: #f4ecd8;
@@ -80,7 +81,6 @@
         .publication {
             padding: 15px;
             border-radius: 8px;
-            transition: all 0.3s ease;
             margin-bottom: 15px;
             cursor: pointer;
         }
@@ -102,7 +102,7 @@
             text-decoration: underline;
             transform: translateY(-2px);
         }
-        .contact-link {
+        /* .contact-link {
             color: var(--link-color);
             text-decoration: none;
             transition: all 0.3s ease;
@@ -119,7 +119,7 @@
             background-color: var(--bg-color);
             border-color: var(--link-hover-color);
             transform: translateY(-2px);
-        }
+        } */
 
         .theme-toggle {
             position: fixed;
@@ -211,6 +211,10 @@
                 padding-top: 180px;
             }
         }
+        .date-badge {
+            font-style: italic;
+            font-weight: normal;
+        }
     </style>
 </head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4NLKRMF16H"></script>
@@ -225,20 +229,20 @@
     <div class="header-bar">
         <h1>Ben Cohen-Wang</h1>
         <div class="contact-info">
-            <span><a href="mailto:bencw@mit.edu" class="contact-link">Contact ✉️</a></span>
-            <span><a href="https://x.com/bcohenwang" target="_blank" class="contact-link">Twitter 🐦</a></span>
-            <span><a href="https://scholar.google.com/citations?user=QwJR7jEAAAAJ&hl" target="_blank" class="contact-link">Google Scholar 📚</a></span>
-            <span><a href="https://www.linkedin.com/in/ben-cohen-wang-b8a81211a/" target="_blank" class="contact-link">LinkedIn 💼</a></span>
+            <a class="icons" href="mailto:bencw@mit.edu" target="_blank"><i class="fas fa-envelope fa-2x"></i></a>
+            <a class="icons" href="https://x.com/bcohenwang" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+            <a class="icons" href="https://scholar.google.com/citations?user=QwJR7jEAAAAJ&hl" target="_blank"><i class="fas fa-graduation-cap fa-2x"></i></a>
+            <a class="icons" href="https://www.linkedin.com/in/ben-cohen-wang-b8a81211a/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
         </div>
         <div style="flex: 1"></div>
     </div>
-    <button class="theme-toggle" onclick="toggleTheme()">🌓 Theme</button>
+    <button class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-adjust"></i></button>
     <div class="container">
         <div class="row">
             <div class="col-md-12 profile-content">
                 <div>
                     <p>
-                        I'm a second year PhD student in EECS at <a href="https://mit.edu" target="_blank">MIT</a> where I am fortunate to be advised by <a href="https://madry.mit.edu" target="_blank">Aleksander Mądry</a>. 
+                        I'm a PhD student in EECS at <a href="https://mit.edu" target="_blank">MIT</a> where I am fortunate to be advised by <a href="https://madry.mit.edu" target="_blank">Aleksander Mądry</a>. 
                         I received my BS in computer science from <a href="https://stanford.edu" target="_blank">Stanford</a>, and spent two great years at <a href="https://robustintelligence.com" target="_blank">Robust Intelligence</a> before starting my PhD.
                     </p>
                     <p>
@@ -264,8 +268,9 @@
                 
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="research" role="tabpanel" aria-labelledby="research-tab">
+                        <p><em>For a full list of papers, see <a href="https://scholar.google.com/citations?user=QwJR7jEAAAAJ&hl" target="_blank">Google Scholar</a>.</em></p>
                         <div class="publication" onclick="window.open('https://arxiv.org/abs/2409.00729', '_blank')">
-                            <h3><a href="https://arxiv.org/abs/2409.00729" target="_blank">ContextCite: Attributing Model Generation to Context</a></h3>
+                            <h3><a href="https://arxiv.org/abs/2409.00729" target="_blank">ContextCite: Attributing Model Generation to Context</a> <span class="date-badge" style="float: right;">NeurIPS 2024</span></h3>
                             <p><strong>Benjamin Cohen-Wang*</strong>, Harshay Shah*, Kristian Georgiev*, Aleksander Mądry</p>
                             <p>
                                 Language models may need external information to provide a response to a given query.
@@ -282,11 +287,11 @@
                                 |
                                 <a href="https://huggingface.co/spaces/contextcite/context-cite" target="_blank">Demo</a>
                                 |
-                                <a href="https://github.com/MadryLab/context-cite" target="_blank">Python package</a>
+                                <a href="https://github.com/MadryLab/context-cite" target="_blank">Code</a>
                             </p>
                         </div>
                         <div class="publication" onclick="window.open('https://arxiv.org/abs/2403.00194', '_blank')">
-                            <h3><a href="https://arxiv.org/abs/2403.00194" target="_blank">Ask Your Distribution Shift if Pre-Training is Right for You</a></h3>
+                            <h3><a href="https://arxiv.org/abs/2403.00194" target="_blank">Ask Your Distribution Shift if Pre-Training is Right for You</a> <span class="date-badge" style="float: right;">TMLR 2025</span></h3>
                             <p><strong>Benjamin Cohen-Wang</strong>, Joshua Vendrow, Aleksander Mądry</p>
                             <p>
                                 <em>Pre-training</em> on a large and diverse general-purpose dataset and then <em>fine-tuning</em> on a task-specific dataset can be an effective approach for developing models that are robust to distribution shifts.
@@ -343,7 +348,7 @@
                             <p onclick="event.stopPropagation()"> 
                                 <a href="https://github.com/MadryLab/context-cite" target="_blank">GitHub Repository</a>
                                 |
-                                <a href="https://huggingface.co/spaces/contextcite/context-cite" target="_blank">Demo</a>
+                                <a href="https://huggingface.co/spaces/contextcite/context-cite" target="_blank">Hugging Face Demo</a>
                                 |
                                 <a href="https://pypi.org/project/context-cite/" target="_blank">PyPI Package</a>
                             </p>
@@ -362,9 +367,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Check for saved theme preference, otherwise use system preference
+        // Set theme based on local time (dark at night, sepia during day)
+        function getThemeBasedOnTime() {
+            const hour = new Date().getHours();
+            // Dark theme between 7 PM (19) and 7 AM (7)
+            return (hour >= 19 || hour < 7) ? 'dark' : 'sepia';
+        }
+        
+        const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        const currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'sepia');
+        const systemPreference = prefersDark.matches ? 'dark' : 'sepia';
+        const timeBasedTheme = getThemeBasedOnTime();
+        const currentTheme = savedTheme || systemPreference || timeBasedTheme;
         document.documentElement.setAttribute('data-theme', currentTheme);
 
         function toggleTheme() {
