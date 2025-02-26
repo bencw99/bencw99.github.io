@@ -9,6 +9,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script>
+        (function() {
+            function getThemeBasedOnTime() {
+                const hour = new Date().getHours();
+                return (hour >= 19 || hour < 7) ? 'dark' : 'sepia';
+            }
+            
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+            const systemPreference = prefersDark.matches ? 'dark' : 'sepia';
+            const timeBasedTheme = getThemeBasedOnTime();
+            const currentTheme = savedTheme || systemPreference || timeBasedTheme;
+            document.documentElement.setAttribute('data-theme', currentTheme);
+        })();
+
+        // Theme toggle function
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'sepia' ? 'dark' : 'sepia';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+    </script>
     <style>
         :root {
             --bg-color: #f4ecd8;
@@ -366,31 +389,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // Set theme based on local time (dark at night, sepia during day)
-        function getThemeBasedOnTime() {
-            const hour = new Date().getHours();
-            // Dark theme between 7 PM (19) and 7 AM (7)
-            return (hour >= 19 || hour < 7) ? 'dark' : 'sepia';
-        }
-        
-        const savedTheme = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-        const systemPreference = prefersDark.matches ? 'dark' : 'sepia';
-        const timeBasedTheme = getThemeBasedOnTime();
-        const currentTheme = savedTheme || systemPreference || timeBasedTheme;
-        document.documentElement.setAttribute('data-theme', currentTheme);
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            let newTheme;
-            
-            if (currentTheme === 'sepia') newTheme = 'dark';
-            else newTheme = 'sepia';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-        }
-    </script>
 </body>
 </html>
