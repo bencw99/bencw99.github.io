@@ -38,7 +38,7 @@
             --text-color: #5c4b37;
             --hover-bg: #e8dcc8;
             --link-color: #8b4513;
-            --link-hover-color: #a0522d;
+            --link-hover-color: #d4691e;
             --header-border: rgba(92,75,55,0.1);
         }
 
@@ -47,7 +47,7 @@
             --text-color: #ffffff;
             --hover-bg: #2d2d4d;
             --link-color: hsl(217, 78%, 70%);
-            --link-hover-color: hsl(217, 78%, 80%);
+            --link-hover-color: hsl(217, 100%, 85%);
             --header-border: rgba(255,255,255,0.1);
         }
 
@@ -170,7 +170,9 @@
         }
         
         .nav-tabs .nav-link:hover:not(.active) {
-            border-bottom: 2px solid var(--header-border);
+            border-bottom: 2px solid var(--link-color);
+            color: var(--link-color);
+            transition: all 0.2s ease;
         }
         
         .tab-content {
@@ -371,7 +373,7 @@
         </div>
         <div class="row mt-5">
             <div class="col-md-12 text-center">
-                <p style="color: var(--text-color); opacity: 0.6; font-size: 0.9rem;">Last updated on March 1, 2025</p>
+                <p style="color: var(--text-color); opacity: 0.6; font-size: 0.9rem;">Last updated on March 6, 2025</p>
             </div>
         </div>
     </div>
